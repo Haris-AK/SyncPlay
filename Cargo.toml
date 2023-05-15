@@ -8,3 +8,6 @@ edition = "2021"
 [dependencies]
 audiotags = "0.4.1"
 kdam = "0.3.0"
+serde = "1.0.163"
+toml = "0.7.3"
+config = "0.13.1"
