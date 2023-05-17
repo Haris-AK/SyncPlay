@@ -1,6 +1,7 @@
 use audiotags;
 use kdam::tqdm;
-use std::fs;
+use std::fs::{OpenOptions, File, read_dir};
+use std::io::Write;
 use std::path::{Path, PathBuf};
 mod path;
 
@@ -10,7 +11,15 @@ pub fn get_list() -> Vec<String> {
     let path = path.get("path").unwrap();
     let res = get_files(&path).unwrap();
     let res = get_metadata(res);
-    return res
+    return res;
+}
+
+pub fn write_list_to_file(v: &Vec<String>) -> Result<(), String> {
+    let mut new_file = File::create("list.txt").unwrap();
+    for i in v {
+        new_file.write_all(i.as_bytes()).unwrap();
+    }
+    Ok(())
 }
 
 fn get_metadata(file_vec: Vec<PathBuf>) -> Vec<String> {
@@ -33,7 +42,7 @@ fn get_files(path: &String) -> Result<Vec<PathBuf>, std::io::Error> {
 }
 
 fn traverse_directory(path: &String, files: &mut Vec<PathBuf>) -> Result<(), std::io::Error> {
-    let entries = fs::read_dir(path)?;
+    let entries = read_dir(path)?;
 
     for entry in entries {
         let entry = entry?;
