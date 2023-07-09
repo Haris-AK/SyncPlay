@@ -8,6 +8,11 @@ edition = "2021"
 [dependencies]
 audiotags = "0.4.1"
 kdam = "0.3.0"
-serde = "1.0.163"
-toml = "0.7.3"
-config = "0.13.1"
+serde = "1.0.164"
+toml = "0.7.4"
+config = "0.13.3"
+tokio = {version = "1.28.2", features =["full"]}
+log = "0.4.19"
+env_logger = "0.10.0"
+rspotify = { version = "0.11.7", default-features = false, features = ["cli", "client-reqwest", "reqwest-native-tls", "env-file"]}
+dotenv = "0.15.0"
