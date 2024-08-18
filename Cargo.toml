@@ -14,5 +14,5 @@ config = "0.13.3"
 tokio = {version = "1.28.2", features =["full"]}
 log = "0.4.19"
 env_logger = "0.10.0"
-rspotify = { version = "0.11.7", default-features = false, features = ["cli", "client-reqwest", "reqwest-native-tls", "env-file"]}
+rspotify = { version = "0.13.2", default-features = false, features = ["cli", "client-reqwest", "reqwest-native-tls", "env-file"]}
 dotenv = "0.15.0"
