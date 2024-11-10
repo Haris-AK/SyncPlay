@@ -1,5 +1,3 @@
-mod user_files;
-// use user_files::get_list;
 mod user_config;
 
 #[tokio::main]
@@ -9,9 +7,18 @@ async fn main() {
     // generate_playlist(&x);
     // let info = auth::authenticate_user().await;
     // auth::write_to_toml(info, "Config.toml");
-    let x = user_files::get_list(&String::from("/run/media/hak/16TB HDD/Main Music/"));
-    for i in x {
-        println!("{:#?}", i)
+    // let var_name = vec![1, 2, 3, 4];
+    // let x = var_name.into_iter();
+    // for i in x {
+    //     let var_name = println!("{:#?}", i);
+    //     var_name
+    // }
+    let mut my_vec: Vec<i64> = Vec::new();
+    for number in 1..100000000 {
+        my_vec.push(number)
     }
-    let x = vec![1, 2, 3, 4].into_iter();
+    let my_new_var: Vec<i64> = my_vec.iter().map(|r| r * *r).collect();
+    for res in my_new_var {
+        println!("{res}")
+    }
 }
